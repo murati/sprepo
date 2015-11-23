@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="LunchList" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/LunchList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+
+
+      <ContentType ID="0x010071f079a2e4f14c498ffff916c86990d2" Name="ListFieldsContentType">
+        <FieldRefs>
+          <FieldRef ID="{6316AAFD-9ECA-4643-9F81-D68DAE9AD6B4}" DisplayName="FirstLunch" Required="FALSE" Name="FirstLunch" Sealed="TRUE" />
+          <FieldRef ID="{210B170A-8BC3-47BF-84EE-9CE7017B7694}" DisplayName="SecondLunch" Required="FALSE" Name="SecondLunch" Sealed="TRUE" />
+          <FieldRef ID="{358D1F53-BFF4-4892-9C1B-61F34C4BBB11}" DisplayName="FirstDessert" Required="FALSE" Name="FirstDessert" Sealed="TRUE" />
+          <FieldRef ID="{3E9E5118-3341-48A1-91DF-E99CB21021BA}" DisplayName="SecondDessert" Required="FALSE" Name="SecondDessert" Sealed="TRUE" />
+          <FieldRef ID="{3D353816-4BA5-4CEB-AF37-7D9CF76A1AC8}" DisplayName="Salad" Required="FALSE" Name="Salad" Sealed="TRUE" />
+          <FieldRef ID="{ffa59ac6-b4c1-4309-9d0b-77af240cee8d}" DisplayName="Locations" Required="FALSE" Name="Locations" />
+        </FieldRefs>
+      </ContentType>
+      <ContentTypeRef ID="0x01">
+        <Folder TargetName="Item" />
+      </ContentTypeRef>
+      <ContentTypeRef ID="0x0120" />
+    </ContentTypes>
+    <Fields>
+
+      <Field ID="{6316AAFD-9ECA-4643-9F81-D68DAE9AD6B4}" DisplayName="FirstLunch" Required="FALSE" Name="FirstLunch" Sealed="TRUE" Type="Text" />
+      <Field ID="{210B170A-8BC3-47BF-84EE-9CE7017B7694}" DisplayName="SecondLunch" Required="FALSE" Name="SecondLunch" Sealed="TRUE" Type="Text" />
+      <Field ID="{358D1F53-BFF4-4892-9C1B-61F34C4BBB11}" DisplayName="FirstDessert" Required="FALSE" Name="FirstDessert" Sealed="TRUE" Type="Text" />
+      <Field ID="{3E9E5118-3341-48A1-91DF-E99CB21021BA}" DisplayName="SecondDessert" Required="FALSE" Name="SecondDessert" Sealed="TRUE" Type="Text" />
+      <Field ID="{3D353816-4BA5-4CEB-AF37-7D9CF76A1AC8}" DisplayName="Salad" Required="FALSE" Name="Salad" Sealed="TRUE" Type="Text" />
+      <Field ID="{ffa59ac6-b4c1-4309-9d0b-77af240cee8d}" DisplayName="Locations" Required="false" Name="Locations" Type="LookupMulti" Mult="TRUE" List="" />
+    </Fields>
+    <Views>
+
+
+      <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+
+          <FieldRef Name="LinkTitleNoMenu"></FieldRef>
+        </ViewFields>
+        <Query>
+          <OrderBy>
+
+            <FieldRef Name="Modified" Ascending="FALSE"></FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View>
+      <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/15/images/generic.png?rev=23" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <JSLink>clienttemplates.js</JSLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+
+          <FieldRef Name="FirstLunch"></FieldRef>
+          <FieldRef Name="SecondLunch" />
+          <FieldRef Name="FirstDessert" />
+          <FieldRef Name="SeconDessert" />
+          <FieldRef Name="Salad" />
+          <FieldRef Name="Locations" />
+        </ViewFields>
+        <Query>
+          <OrderBy>
+
+            <FieldRef Name="ID"></FieldRef>
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View>
+    </Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

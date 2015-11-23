@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B9A26A7-95A5-4F5D-A2E8-4D8ADC92AEEA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharePoint.Repository.ContentTypes</RootNamespace>
+    <AssemblyName>SharePoint.Repository.ContentTypes</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\SharePoint.Repository Content Types\SharePoint.EventReceiver.cs">
+      <DependentUpon>SharePoint.Repository Content Types.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Features\SharePoint.Repository Content Types\SharePoint.Repository Content Types.feature">
+      <FeatureId>{b8e842d8-2998-4e90-9c05-16298e34f55c}</FeatureId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="LocationsList\LocationsListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{17d02aa7-2467-41e2-9681-9b0afdee8d55}</SharePointProjectItemId>
+    </None>
+    <None Include="LocationsList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{49b81b9e-e981-4a87-b8d7-ed2ce1f3b7ad}</SharePointProjectItemId>
+    </None>
+    <None Include="LunchList\LunchListInstance\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4cc6a969-2531-480a-b5e0-aae203a6b19c}</SharePointProjectItemId>
+    </None>
+    <None Include="LunchList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5e7f1da5-5caf-4f8c-9761-b8b68a740b11}</SharePointProjectItemId>
+    </None>
+    <None Include="Package\Package.package">
+      <PackageId>{39e3990a-5e84-483b-b7e7-b86cfb1b5829}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Features\SharePoint.Repository Content Types\SharePoint.Repository Content Types.Template.xml">
+      <DependentUpon>SharePoint.Repository Content Types.feature</DependentUpon>
+    </Content>
+    <Content Include="LocationsList\Elements.xml" />
+    <Content Include="LocationsList\LocationsListInstance\Elements.xml" />
+    <Content Include="LocationsList\Schema.xml" />
+    <Content Include="LunchList\Elements.xml" />
+    <Content Include="LunchList\LunchListInstance\Elements.xml" />
+    <Content Include="LunchList\Schema.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>
