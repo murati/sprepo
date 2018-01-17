@@ -11,24 +11,24 @@ using System.Threading.Tasks;
 
 namespace SharePoint.Repository.Data.Repositories
 {
-    public abstract class IRepository<T> : IEntity where T : new()
+    public abstract class RepositoryBase<T> : EntityBase where T : new()
     {
         string WebUrl { get; set; }
         private SPList list;
         private SPWeb web;
         ListItemFieldMapper<T> mapper = new ListItemFieldMapper<T>();
-        public IRepository(SPWeb web, string listName)
+        public RepositoryBase(SPWeb web, string listName)
         {
             // TODO: Complete member initialization
             this.web = web;
-            this.list = web.Lists.TryGetList(listName);
+            list = web.Lists.TryGetList(listName);
             PropertyInfo[] properties = typeof(T).GetProperties();
             for (int i = 0; i < properties.Length; i++)
             {
                 mapper.AddMapping(GetFieldName(properties[i]), properties[i].Name);
             }
         }
-        internal List<T> GetAllItems()
+        public virtual List<T> GetAllItems()
         {
             var caml = CamlLogicalJoin.And(CamlOperator.IsNotNull("ID"));
             SPListItemCollection items = list.GetItems(new SPQuery { Query = CamlQuery.BuildQuery(caml).GetWhereClause() });
@@ -41,7 +41,7 @@ namespace SharePoint.Repository.Data.Repositories
             return entityList;
         }
 
-        internal int Add(T entity, int id)
+        public int Add(T entity, int id)
         {
             SPListItem item = null;
             if (id > 0)
@@ -53,7 +53,7 @@ namespace SharePoint.Repository.Data.Repositories
             return item.ID;
         }
 
-        private Guid GetFieldName(PropertyInfo prop)
+       public Guid GetFieldName(PropertyInfo prop)
         {
             IList<CustomAttributeData> attribs = prop.GetCustomAttributesData();
             for (int i = 0; i < attribs.Count; i++)
@@ -67,7 +67,7 @@ namespace SharePoint.Repository.Data.Repositories
             return Guid.Empty;
         }
 
-        internal T GetItemById(int id)
+        public T GetItemById(int id)
         {
             SPListItem item = list.GetItemById(id);
             return mapper.CreateEntity(item);

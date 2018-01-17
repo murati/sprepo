@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SharePoint.Repository.Data.Repositories
 {
-    public class LocationRepository : IRepository<LocationEntity>
+    public class LocationRepository : RepositoryBase<LocationEntity>
     {
         ListItemFieldMapper<LocationEntity> mapper = new ListItemFieldMapper<LocationEntity>();
         public const string ListName = "LocationList";

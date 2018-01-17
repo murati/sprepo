@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SharePoint.Repository.Data.Repositories
 {
-    public class LunchRepository : IRepository<LunchEntity>
+    public class LunchRepository : RepositoryBase<LunchEntity>
     {
         public const string ListName = "LunchList";
 

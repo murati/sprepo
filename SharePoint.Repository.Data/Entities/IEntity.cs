@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SharePoint.Repository.Data.Entities
 {
-    public abstract class IEntity
+    public abstract class EntityBase
     {
         /// <summary>
         /// GUID of the ID field. You can refer to InternalName of the desired field as well.

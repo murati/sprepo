@@ -57,6 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{67742586-76af-42fa-a46e-f029d774056b}</FeatureId>
+    </None>
     <None Include="Features\SharePoint.Repository Content Types\SharePoint.Repository Content Types.feature">
       <FeatureId>{b8e842d8-2998-4e90-9c05-16298e34f55c}</FeatureId>
     </None>
@@ -82,6 +85,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
     <Content Include="Features\SharePoint.Repository Content Types\SharePoint.Repository Content Types.Template.xml">
       <DependentUpon>SharePoint.Repository Content Types.feature</DependentUpon>
     </Content>

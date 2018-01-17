@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SharePoint.Repository.Data.Entities
 {
-    public class LunchEntity : IEntity
+    public class LunchEntity : EntityBase
     {
         /// <summary>
         /// GUID of the fields given below. You can refer to InternalName of the desired field as well. 

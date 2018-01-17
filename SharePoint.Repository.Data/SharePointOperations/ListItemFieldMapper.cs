@@ -45,13 +45,13 @@ namespace SharePoint.Repository.Data.SharePointOperations
                 if (item[fieldMappings[i].ListFieldId] != null)
                     switch (item[fieldMappings[i].ListFieldId].GetType().Name)
                     {
-                        case "SPFieldLookupValueCollection":
-                        case "SPFieldUserValueCollection":
+                        case SPConstants.SPFieldLookupValueCollection:
+                        case SPConstants.SPFieldUserValueCollection:
                             var list = LookupHelper.GetLookupData(item, propertyInfo, Convert.ToString(item[fieldMappings[i].ListFieldId]), "CreateEntityListFromLookup");
                             propertyInfo.SetValue(entity, list, null);
                             break;
-                        case "SPFieldLookupValue":
-                        case "SPFieldUserValue":
+                        case SPConstants.SPFieldUserValue:
+                        case SPConstants.SPFieldLookupValue:
                             var lookup = LookupHelper.GetLookupData(item, propertyInfo, Convert.ToString(item[fieldMappings[i].ListFieldId]), "CreateEntityFromLookup");
                             propertyInfo.SetValue(entity, lookup, null);
                             break;

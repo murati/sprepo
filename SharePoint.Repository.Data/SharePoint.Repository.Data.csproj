@@ -57,6 +57,7 @@
     <Compile Include="SharePointOperations\ListItemFieldMapper.cs" />
     <Compile Include="SharePointOperations\ListItemFieldMappingException.cs" />
     <Compile Include="SharePointOperations\LookupHelper.cs" />
+    <Compile Include="SharePointOperations\SPConstants.cs" />
     <Compile Include="SharePointOperations\Validation.cs" />
   </ItemGroup>
   <ItemGroup />
